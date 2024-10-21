@@ -1,0 +1,7 @@
+python-dotenv
+tiktoken
+postgres
+pgvector
+psycopg
+fastapi
+ollama

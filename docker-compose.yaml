@@ -1,0 +1,61 @@
+version: '3.1'
+
+services:
+  app:
+    build: ./app/server
+    container_name: chatbot_demo_app 
+    env_file:
+      - ./app/server/src/.env
+    volumes:
+      - ./app/server:/app
+    depends_on:
+      - db
+    ports: 
+      - 8000:8000
+      - 11434:11434
+
+  client:
+    build: ./app/client
+    container_name: chatbot_demo_client
+    volumes:
+      - ./app/client:/app
+    ports:
+      - 3000:3000
+
+  db:
+    image: pgvector/pgvector:pg16
+    restart: always
+    env_file:
+      - ./app/server/src/.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./app/server/startup:/docker-entrypoint-initdb.d
+    ports:
+      - 5433:5432
+    container_name: chatbot_demo_db
+
+  router:
+    build: ./router
+    container_name: chatbot_demo_router
+    env_file:
+      - ./router/.env
+    volumes: 
+      - ./router:/app
+    depends_on:
+      - subgraphs
+    links:
+      - subgraphs
+    restart: on-failure
+    ports:
+      - 4040:4040
+
+  subgraphs:
+    build: ./subgraphs/products
+    container_name: chatbot_demo_subgraph
+    volumes:
+      - ./subgraphs/products:/app
+    ports:
+      - 4000:4000
+ 
+volumes:
+  pgdata:

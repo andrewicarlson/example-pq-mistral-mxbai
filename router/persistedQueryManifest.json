@@ -1,0 +1,18 @@
+{
+    "format": "apollo-persisted-query-manifest",
+    "version": 1,
+    "operations": [
+        {
+            "id": "1bb5e58db14e0aac786f4dc01c73063291955a570fffc7d1b6633371ae001286",
+            "body": "query AllProducts { products { id name price stock description category } }",
+            "name": "AllProducts",
+            "type": "query"
+        },
+        {
+            "id": "40dcb3622e73833624726a85beec030a40da596c370f95adc9b84425445c6a42",
+            "body": "query Product($productName: String!) { product(product_name: $productName) { category description name id price stock } }",
+            "name": "Product",
+            "type": "query"
+        }
+    ]
+}

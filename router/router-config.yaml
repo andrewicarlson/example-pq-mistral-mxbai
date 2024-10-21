@@ -1,0 +1,11 @@
+supergraph:
+  listen: 0.0.0.0:4040
+health_check:
+  listen: 0.0.0.0:8089
+persisted_queries:
+  enabled: true
+  safelist:
+    enabled: true
+    require_id: true
+apq:
+  enabled: false

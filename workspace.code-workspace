@@ -1,0 +1,17 @@
+{
+    "folders": [
+
+        {
+            "path": "./.github",
+            "name": "GitHub Actions"
+        },
+        {
+            "path": "./subgraph",
+            "name": "Subgraph"
+        },
+        {
+            "path": "./apidays",
+            "name": "API Days MVP"
+        }
+    ],
+}

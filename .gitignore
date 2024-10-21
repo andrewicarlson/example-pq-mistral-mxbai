@@ -1,0 +1,7 @@
+.env
+__pycache__/
+.DS_Store
+.venv/
+node_modules/
+chatbot/router/router
+chatbot/chatbot-router/router
