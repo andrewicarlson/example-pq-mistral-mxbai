@@ -3,5 +3,4 @@ __pycache__/
 .DS_Store
 .venv/
 node_modules/
-chatbot/router/router
-chatbot/chatbot-router/router
+router/router

@@ -4,12 +4,14 @@ This repository demonstrates how to execute safe and trusted operations in an AP
 
 ## Running the Example
 
-### Apollo Enterprise Trial
+### Apollo Enterprise Trial and Persisted Query List setup
 
 1. Start an [Enterprise Trial](https://studio.apollographql.com/signup?type=enterprise-trial_) for the persisted queries
 1. In [Apollo Studio](https://studio.apollographql.com/) create a new graph and ensure that 'Supergraph' is selected for 'Graph Architecture'.
 1. In the next overlay screen, copy the `APOLLO_KEY` and the Graph reference. It should look something like `My-Graph-5-2jlmak@current`
+1. Create a [Persisted Query list](https://www.apollographql.com/docs/graphos/platform/security/persisted-queries#implementation-steps) and link it to the newly created graph variant
 1. Create `/router/.env` based on `/router/.env.example` which exports the `APOLLO_KEY` and `APOLLO_GRAPH_REF` previously copied.
+1. Run `sh scripts/updated_persisted_queries.sh` to push the persisted queries found in `router/persistedQueryManifest.json` to your newly created PQ list in GraphOS Studio. 
 
 ### Set up
 
